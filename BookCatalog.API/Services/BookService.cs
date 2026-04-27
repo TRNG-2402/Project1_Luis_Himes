@@ -78,8 +78,9 @@ public class BookService : IBookService
 
         if (book is null)
             throw new KeyNotFoundException($"BookId {bookId} does not exist.");
+        int newStock = book.Stock + numBooks;
 
-        book.Stock = book.Stock + numBooks;
+        book.Stock = newStock;
 
         await _repo.UpdateBookAsync(book);
     }

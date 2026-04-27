@@ -51,7 +51,7 @@ public class OrderService : IOrderService
 
         newOrd.CustomerId = newOrder.CustomerId;
         newOrd.DateOrdered = DateTime.Now;
-        Order? returnedOrd = await _repo.CreateOrderAsync(newOrd);
+        Order returnedOrd = await _repo.CreateOrderAsync(newOrd);
         finOrd.CustomerId = returnedOrd.CustomerId;
         finOrd.BookId = newOrder.BookId;
         finOrd.DateOrdered = newOrd.DateOrdered;

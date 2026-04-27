@@ -34,14 +34,14 @@ public class BookController : ControllerBase
     {
         return await _bookService.CreateBookAsync(newBook);
     }
-    [HttpPatch("restock\\{bookId}")]
+    [HttpPatch("{bookId}/restock")]
     public async Task<ActionResult> RestockBook(int bookId, int numBooks)
     {
         await _bookService.RestockBook(bookId, numBooks);
 
         return NoContent();
     }
-    [HttpPatch("changePrice\\{bookId}")]
+    [HttpPatch("{bookId}/changePrice")]
     public async Task<ActionResult> ChangeBookPrice(int bookId, decimal price)
     {
         await _bookService.ChangePrice(bookId, price);
